@@ -7,7 +7,7 @@
         "version": "1.0.0",
         "displayName": "AVR128DA48 CNANO USART MCC",
         "projectName": "avr128da48-cnano-usart-mcc",
-        "shortDescription": "Code example for sending "Hello World!" message through USART using MCC",
+        "shortDescription": "Code example for sending Hello World! message through USART using MCC",
         "ide": {
             "name": "MPLABX",
             "semverRange": ">=5.40.0"
