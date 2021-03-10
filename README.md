@@ -1,8 +1,8 @@
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
- # AVR128DA48 USART Hello World Code Example
+ # AVR128DA48 USART "Hello World!" Code Example
 
- This repository provides a MPLAB X project with a MCC Generated code example for a basic USART communication.
+ This repository provides an MPLAB® X project with a MCC Generated code example for a basic USART communication.
  This example demonstrates the basic functionality of the USART peripheral. The message "Hello world!" is sent through TXd (PC0) pin every one second and can be viewed using a terminal on a PC.
 
 ## Related Documentation
@@ -13,11 +13,11 @@ More details and code examples on the AVR128DA48 can be found at the following l
 
 
 ## Software Used
-- MPLAB® X IDE 5.40 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-- MPLAB® XC8 2.20 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-- MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- MPLAB® Code Configurator (MCC) Device Libraries 8-bit AVR MCUs 2.3.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- AVR-Dx 1.2.52 or newer Device Pack
+- MPLAB® X IDE 5.45 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
+- MPLAB® XC8 2.31 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
+- MPLAB® Code Configurator (MCC) 4.1.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
+- MPLAB® Code Configurator Library 1.37.9 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
+- AVR-Dx 1.6.88 or newer Device Pack
 
 
 ## Hardware Used
@@ -29,15 +29,20 @@ The AVR128DA48 Curiosity Nano Development Board is used as test platform
 
 The following configurations must be made for this project:
 
+Clock: default
+
 USART1:
+  - Mode: Async Mode
   - Baud rate 9600
-  - Transmitter enabled
-  - Data format to 8-bit
+  - USART Transmitter enabled
+  - Parity Mode: No Parity
+  - Stop Bit Mode: 1 stop bit
+  - Character Size: 8 bit
+  
 
 |Pin           | Configuration      |
 | :----------: | :----------------: |
 |PC0 (TXd)     | Digital Output     |
-|PC1 (RXd)     | Digital Input      |
 
 
 ## Operation

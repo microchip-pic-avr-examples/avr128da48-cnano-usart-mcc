@@ -1,3 +1,12 @@
+/**
+  @Company
+    Microchip Technology Inc.
+
+  @Description
+    This Source file provides APIs.
+    Generation Information :
+    Driver Version    :   1.0.0
+*/
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -31,33 +40,44 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include <util/delay.h>
 
-void USART1_sendString(const char *str)
-{
-    while(*str)
-    {
-        while (!(USART1_IsTxReady()));
-        USART1_Write(*str++);
-    }
-}
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-
-    /* Replace with your application code */
-    while (1){
-        
-        USART1_sendString("Hello World!\r\n");
-        _delay_ms(1000);
-    }
-}
 /**
-    End of File
-*/
+ * \defgroup doc_driver_utils_assert Functionality for assert.
+ * \ingroup doc_driver_utils
+ *
+ * \{
+ */
+
+#ifndef _ASSERT_H_INCLUDED
+#define _ASSERT_H_INCLUDED
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <stdbool.h>
+
+/**
+ * \brief Assert macro
+ *
+ * This macro is used to throw asserts. It can be mapped to different function
+ * based on debug level.
+ *
+ * \param[in] condition A condition to be checked;
+ *                      assert is thrown if the given condition is false
+ */
+
+#ifdef DEBUG
+#define ASSERT(condition)                                                                                              \
+	if (!(condition))                                                                                                  \
+		while (true)                                                                                                   \
+			;
+#else
+#define ASSERT(condition) ((void)0)
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+#endif /* _ASSERT_H_INCLUDED */

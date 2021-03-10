@@ -1,3 +1,12 @@
+/**
+  @Company
+    Microchip Technology Inc.
+
+  @Description
+    This Source file provides APIs.
+    Generation Information :
+    Driver Version    :   1.0.0
+*/
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -31,33 +40,44 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include <util/delay.h>
 
-void USART1_sendString(const char *str)
+#include <xc.h>
+#include "../clock.h"
+
+void CLOCK_Initialize(void)
 {
-    while(*str)
-    {
-        while (!(USART1_IsTxReady()));
-        USART1_Write(*str++);
-    }
-}
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
+    // Set the CLKCTRL module to the options selected in the user interface.
+    
+    //CLKOUT disabled; CLKSEL Internal high-frequency oscillator; 
+    ccp_write_io((void*)&(CLKCTRL.MCLKCTRLA),0x0);
 
-    /* Replace with your application code */
-    while (1){
-        
-        USART1_sendString("Hello World!\r\n");
-        _delay_ms(1000);
-    }
+    //PDIV 2X; PEN disabled; 
+    ccp_write_io((void*)&(CLKCTRL.MCLKCTRLB),0x0);
+
+    //LOCKEN disabled; 
+    ccp_write_io((void*)&(CLKCTRL.MCLKLOCK),0x0);
+
+    //EXTS disabled; OSCHFS disabled; OSC32KS disabled; PLLS disabled; SOSC disabled; XOSC32KS disabled; 
+    ccp_write_io((void*)&(CLKCTRL.MCLKSTATUS),0x0);
+
+    //AUTOTUNE disabled; FREQSEL 4 MHz system clock (default); RUNSTDBY disabled; 
+    ccp_write_io((void*)&(CLKCTRL.OSCHFCTRLA),0xC);
+
+    //TUNE 0x0; 
+    ccp_write_io((void*)&(CLKCTRL.OSCHFTUNE),0x0);
+
+    //RUNSTDBY disabled; 
+    ccp_write_io((void*)&(CLKCTRL.OSC32KCTRLA),0x0);
+
+    //MULFAC PLL is disabled; RUNSTDBY disabled; SOURCE disabled; 
+    ccp_write_io((void*)&(CLKCTRL.PLLCTRLA),0x0);
+
+    //CSUT 1k cycles; ENABLE disabled; LPMODE disabled; RUNSTDBY disabled; SEL disabled; 
+    ccp_write_io((void*)&(CLKCTRL.XOSC32KCTRLA),0x0);
+
 }
+
 /**
-    End of File
+ End of File
 */

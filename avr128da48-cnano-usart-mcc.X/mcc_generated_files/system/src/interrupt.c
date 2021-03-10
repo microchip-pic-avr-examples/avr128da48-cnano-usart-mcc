@@ -1,3 +1,12 @@
+/**
+  @Company
+    Microchip Technology Inc.
+
+  @Description
+    This Source file provides APIs.
+    Generation Information :
+    Driver Version    :   1.0.0
+*/
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -31,33 +40,26 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include <util/delay.h>
 
-void USART1_sendString(const char *str)
-{
-    while(*str)
-    {
-        while (!(USART1_IsTxReady()));
-        USART1_Write(*str++);
-    }
-}
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
+#include "../interrupt.h"
 
-    /* Replace with your application code */
-    while (1){
-        
-        USART1_sendString("Hello World!\r\n");
-        _delay_ms(1000);
-    }
-}
 /**
-    End of File
-*/
+ * \brief Initialize cpuint interface
+ */
+int8_t CPUINT_Initialize()
+{
+    /* IVSEL and CVT are Configuration Change Protected */
+
+    //CVT disabled; IVSEL disabled; LVL0RR disabled; 
+    ccp_write_io((void*)&(CPUINT.CTRLA),0x0);
+    
+    //LVL0PRI 0; 
+    CPUINT.LVL0PRI = 0x0;
+    
+    //LVL1VEC 0; 
+    CPUINT.LVL1VEC = 0x0;
+
+        
+    return 0;
+}

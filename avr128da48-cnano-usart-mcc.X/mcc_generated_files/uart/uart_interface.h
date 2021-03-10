@@ -1,3 +1,26 @@
+/**
+  USART1 Generated Driver API Header File
+
+  @Company
+    Microchip Technology Inc.
+
+  @File Name
+    usart1_interface.h
+
+  @Summary
+    This is the generated driver interface header file for the USART1 driver.
+
+  @Description
+    This file provides common enumerations for USART1 driver.
+    Generation Information :
+        Product Revision  :   - 
+        Device            :  
+        Driver Version    :  1.0.0
+    The generated drivers are tested against the following:
+        Compiler          :  XC8 v2.20 and above
+        MPLAB             :  MPLABX v5.40  and above
+*/
+
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -31,33 +54,37 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include <util/delay.h>
-
-void USART1_sendString(const char *str)
-{
-    while(*str)
-    {
-        while (!(USART1_IsTxReady()));
-        USART1_Write(*str++);
-    }
-}
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-
-    /* Replace with your application code */
-    while (1){
-        
-        USART1_sendString("Hello World!\r\n");
-        _delay_ms(1000);
-    }
-}
+#ifndef UART_INTERFACE_H
+#define UART_INTERFACE_H
 /**
-    End of File
+  Section: Included Files
 */
+#include <stdbool.h>
+#include <stdint.h>
+#include <xc.h>
+    
+/**
+  UART_INTERFACE
+
+  @Description
+    Structure containing the function pointers of USART1 driver.
+ */
+struct UART_INTERFACE
+{   
+    void (*Initialize)(void);
+    uint8_t (*Read)(void);
+    void (*Write)(uint8_t);
+    void (*RxCompleteCallbackRegister)(void (*CallbackHandler)(void));
+    void (*TxCompleteCallbackRegister)(void (*CallbackHandler)(void));
+    void (*ErrorCallbackRegister)(void (*CallbackHandler));
+    void (*FramingErrorCallbackRegister)(void (*CallbackHandler));
+    void (*OverrunErrorCallbackRegister)(void (*CallbackHandler));
+    void (*ParityErrorCallbackRegister)(void (*CallbackHandler));
+    void (*ChecksumErrorCallbackRegister)(void (*CallbackHandler));
+    bool (*IsRxReady)(void);
+    bool (*IsTxReady)(void);
+    bool (*IsTxDone)(void);
+};
+
+#endif // end of UART_INTERFACE_H

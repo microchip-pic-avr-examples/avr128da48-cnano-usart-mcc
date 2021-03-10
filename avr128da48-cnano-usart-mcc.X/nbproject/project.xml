@@ -4,7 +4,7 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>avr128da48-cnano-usart-mcc</name>
-            <creation-uuid>bd74ddd1-d807-427f-a129-84dea8c5c8e3</creation-uuid>
+            <creation-uuid>da10c01b-bd8f-4bec-a820-9f53e5ebf10f</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>

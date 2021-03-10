@@ -1,3 +1,12 @@
+/**
+  @Company
+    Microchip Technology Inc.
+
+  @Description
+    This Source file provides APIs.
+    Generation Information :
+    Driver Version    :   1.0.0
+*/
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -31,33 +40,21 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include <util/delay.h>
 
-void USART1_sendString(const char *str)
-{
-    while(*str)
-    {
-        while (!(USART1_IsTxReady()));
-        USART1_Write(*str++);
-    }
-}
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
+#ifndef ASSEMBLER_H_INCLUDED
+#define ASSEMBLER_H_INCLUDED
 
-    /* Replace with your application code */
-    while (1){
-        
-        USART1_sendString("Hello World!\r\n");
-        _delay_ms(1000);
-    }
-}
-/**
-    End of File
-*/
+#if !defined(__ASSEMBLER__) && !defined(__IAR_SYSTEMS_ASM__) && !defined(__DOXYGEN__)
+#error This file may only be included from assembly files
+#endif
+
+#if defined(__ASSEMBLER__)
+#include "assembler/gas.h"
+#include <avr/io.h>
+#elif defined(__IAR_SYSTEMS_ASM__)
+#include "assembler/iar.h"
+#include <ioavr.h>
+#endif
+
+#endif /* ASSEMBLER_H_INCLUDED */

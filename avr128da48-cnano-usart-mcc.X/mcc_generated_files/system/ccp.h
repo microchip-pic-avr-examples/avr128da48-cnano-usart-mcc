@@ -1,3 +1,12 @@
+/**
+  @Company
+    Microchip Technology Inc.
+
+  @Description
+    This Source file provides APIs.
+    Generation Information :
+    Driver Version    :   1.0.0
+*/
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -31,33 +40,54 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include <util/delay.h>
 
-void USART1_sendString(const char *str)
-{
-    while(*str)
-    {
-        while (!(USART1_IsTxReady()));
-        USART1_Write(*str++);
-    }
-}
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
+#ifndef CPU_CCP_H
+#define CPU_CCP_H
 
-    /* Replace with your application code */
-    while (1){
-        
-        USART1_sendString("Hello World!\r\n");
-        _delay_ms(1000);
-    }
-}
+#include "../system/utils/compiler.h"
+#include "../system/protected_io.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
-    End of File
-*/
+ * \brief Write to a CCP-protected 8-bit I/O register
+ *
+ * \param addr Address of the I/O register
+ * \param value Value to be written
+ *
+ * \note Using IAR Embedded workbench, the choice of memory model has an impact
+ *       on calling convention. The memory model is not visible to the
+ *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+ */
+static inline void ccp_write_io(void *addr, uint8_t value)
+{
+	protected_write_io(addr, CCP_IOREG_gc, value);
+}
+
+/** @} */
+
+/**
+ * \brief Write to CCP-protected 8-bit SPM register
+ *
+ * \param addr Address of the SPM register
+ * \param value Value to be written
+ *
+ * \note Using IAR Embedded workbench, the choice of memory model has an impact
+ *       on calling convention. The memory model is not visible to the
+ *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+ */
+static inline void ccp_write_spm(void *addr, uint8_t value)
+{
+	protected_write_io(addr, CCP_SPM_gc, value);
+}
+
+/** @} */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* CPU_CCP_H */
