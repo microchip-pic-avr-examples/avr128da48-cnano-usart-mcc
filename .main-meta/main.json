@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.avr128da48-cnano-usart-mcc",
-        "version": "1.0.3",
+        "version": "2.0.0",
         "displayName": "Send Hello World! over USART",
         "projectName": "avr128da48-cnano-usart-mcc",
         "shortDescription": "This example demonstrates the basic functionality of the USART peripheral. The message <Hello world!> is sent through TXd (PC0) pin every one second and can be viewed using a terminal on a PC",
