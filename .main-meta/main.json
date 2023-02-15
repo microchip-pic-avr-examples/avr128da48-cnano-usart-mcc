@@ -2,29 +2,29 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.1.0",
+        "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.avr128da48-cnano-usart-mcc",
-        "version": "2.0.0",
-        "displayName": "Send Hello World! over USART",
+        "version": "2.0.1",
+        "displayName": "Sending Hello World! Message via USART using the AVR128DA48 Microcontroller with MCC Melody",
         "projectName": "avr128da48-cnano-usart-mcc",
-        "shortDescription": "This example demonstrates the basic functionality of the USART peripheral. The message <Hello world!> is sent through TXd (PC0) pin every one second and can be viewed using a terminal on a PC",
+        "shortDescription": "This example demonstrates the basic functionality of the USART peripheral. The message <Hello world!> is sent through TX (PC0) pin every one second and can be viewed using a terminal on a PC",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=5.45.0"
+            "semverRange": ">=6.5.0"
         },
         "compiler": [
 			{
 				"name": "XC8",
-				"semverRange": "^2.31.0"
+				"semverRange": "^2.40.0"
 			}
 		],
         "dfp": {
             "name": "AVR-Dx_DFP",
-            "semverRange": "^1.6.88"
+            "semverRange": "^2.3.272"
         },
         "configurator": {
             "name": "MCC",
-            "semverRange": ">=4.1.0"
+            "semverRange": ">=5.2.2"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -37,18 +37,13 @@
             }
         },
         "author": "Microchip",
-        "subcategories": [
-            [
-               "Peripherals",
-			   "USART"
-            ]         			
-        ],
         "peripherals": [
             "USART"
         ],
         "keywords": [
             "Getting Started",
-			"Melody"
+			"Melody",
+			"USART"
         ],
 		"additionalData": {
 			"longDescription": {
