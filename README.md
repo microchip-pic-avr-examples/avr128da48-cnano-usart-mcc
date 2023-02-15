@@ -64,7 +64,7 @@ The following pin configuration must be made for this project:
 ## 2. Demo
 
 In this demo, the message `Hello World!` is sent via serial communication every 1000 ms. MPLAB X Data Visualizer is used as a terminal to see the output message.
-<br><img src="images/demo.png" width="1000">
+<br><img src="images/demo_mplab.png" width="1000">
 
 ## 3. Summary
 This example represents a basic functionality of the USART peripheral. The message "Hello world!" is sent through TX (PC0) pin every one second. MPLAB X Data Visualizer is used to see the messages on the PC.
