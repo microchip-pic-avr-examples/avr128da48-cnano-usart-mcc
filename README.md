@@ -2,8 +2,8 @@
 
  # Sending "Hello World" Message via USART using the AVR128DA48 Microcontroller with MCC Melody
 
- This repository provides a code example for a basic USART communication using an MPLAB® X project with an MCC Melody.
- 
+ This repository provides an MCC Melody-generated code example for a basic USART communication using the MPLAB® X project.
+
  This example demonstrates the basic functionality of the USART peripheral. The message "Hello world!" is sent through TX (PC0) pin every second and can be viewed using a terminal on a PC.
 
 ## Related Documentation
