@@ -201,12 +201,12 @@
          <hash>a51d2178d0c940ae2d1b51eff122d0d63e53efe29edb2fb8c7fbd78b1c2fcabe</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\system\src\protected_io.S</file>
-         <hash>3bb77a623e934d19f38ed22bfd302ac90e929cb841406c027d11193bd5358b36</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\system\src\config_bits.c</file>
          <hash>c1f5ccca51208dd0ef8001f850d1abb00f74aa138c3e72c391ad95e8541093fe</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\system\src\protected_io.S</file>
+         <hash>3bb77a623e934d19f38ed22bfd302ac90e929cb841406c027d11193bd5358b36</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\system\protected_io.h</file>

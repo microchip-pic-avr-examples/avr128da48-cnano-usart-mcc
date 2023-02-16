@@ -2,8 +2,9 @@
 
  # Sending "Hello World" Message via USART using the AVR128DA48 Microcontroller with MCC Melody
 
- This repository provides an MPLAB® X project with a MCC Melody-generated code example for a basic USART communication.
- This example demonstrates the basic functionality of the USART peripheral. The message "Hello world!" is sent through TX (PC0) pin every one second and can be viewed using a terminal on a PC.
+ This repository provides a code example for a basic USART communication using an MPLAB® X project with an MCC Melody.
+ 
+ This example demonstrates the basic functionality of the USART peripheral. The message "Hello world!" is sent through TX (PC0) pin every second and can be viewed using a terminal on a PC.
 
 ## Related Documentation
 
@@ -63,15 +64,15 @@ The following pin configuration must be made for this project:
 
 ## 2. Demo
 
-In this demo, the message `Hello World!` is sent via serial communication every 1000 ms. MPLAB X Data Visualizer is used as a terminal to see the output message.
+In this demo, the message `Hello World!` is sent via serial communication every second. MPLAB X Data Visualizer is used as a terminal to see the output message.
 <br><img src="images/demo_mplab.png" width="1000">
 
 ## 3. Summary
-This example represents a basic functionality of the USART peripheral. The message "Hello world!" is sent through TX (PC0) pin every one second. MPLAB X Data Visualizer is used to see the messages on the PC.
+This example represents a basic functionality of the USART peripheral. The message "Hello world!" is sent through TX (PC0) pin every second. MPLAB X Data Visualizer displays the "Hello World!" messages on the PC.
 
 ##  How to Program the Curiosity Nano board
 
-This chapter shows how to use the MPLAB® X IDE to program an AVR® device with an Example_Project.X. This can be applied for any other projects. 
+This chapter shows how to use the MPLAB X IDE to program an AVR® device with an Example_Project.X. This can be applied for any other projects. 
 
 - Connect the board to the PC.
 
